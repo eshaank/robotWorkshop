@@ -19,22 +19,46 @@ RedBotMotors motors; // Instantiate the motor control object. This only needs
 
 void setup()
 {
-  driveDistance(20);
+//  driveDistance(5);
+//  turnAngle(90);
+//  delay(10000);
 }
 
 void loop()
 {
-  // Nothing here. We'll get to this in the next experiment.
+driveDistance(5);
+  turnAngle(90);
+  driveDistance(10);
+  turnAngle(90);
+  delay(100);
 }
+
 void driveDistance(int distance)
 {
-  int avgSpeed = 13;
+  int avgSpeed = 12;
   int motorsPower = 135;
   long driveTime;
   driveTime = (long) 1000 * distance / avgSpeed;
   motors.drive(motorsPower);
   delay(driveTime);
   motors.brake();
+}
+
+void  turnAngle(int angle)
+{
+  int turningSpeed = 180;
+  long turningTime;
+  turningTime = (long)1000 * angle / turningSpeed;
+  motors.rightMotor(-100);
+  motors.leftMotor(-100);
+  delay(turningTime);
+  motors.brake();
+
+
+
+
+
+
 }
 
 
